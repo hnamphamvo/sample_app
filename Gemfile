@@ -9,7 +9,7 @@ gem "rails", "~> 5.2.3"
 gem "sass-rails", "~> 5.0"
 gem "sqlite3"
 gem "uglifier", ">= 1.3.0"
-
+gem "bootstrap-sass", "3.3.7"
 gem "coffee-rails", "~> 4.2"
 gem "jbuilder", "~> 2.5"
 gem "turbolinks", "~> 5"
