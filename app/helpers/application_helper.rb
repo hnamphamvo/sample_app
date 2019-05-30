@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# :nodoc:
 module ApplicationHelper
   def full_title page_title
     base_title = I18n.t ".base_title"
