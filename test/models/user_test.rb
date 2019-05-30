@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'test_helper'
+rrequire 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
   def setup
@@ -53,5 +53,8 @@ class UserTest < ActiveSupport::TestCase
   test 'password should have a minimum length' do
     @user.password = @user.password_confirmation = 'a' * 5
     assert_not @user.valid?
+  end
+  test 'authenticated? should return false for a user with nil digest' do
+    assert_not @user.authenticated?('')
   end
 end
