@@ -4,8 +4,5 @@
 
 class ApplicationController < ActionController::Base # :nodoc:
   protect_from_forgery with: :exception
-
-  def hello
-    render html: 'hello, world!'
-  end
+  include SessionsHelper
 end
