@@ -2,13 +2,13 @@
 
 # :nodoc:
 class UserMailer < ApplicationMailer
-  def account_activation(user)
+  def account_activation user
     @user = user
-    mail to: user.email, subject: t "mail.subject"
+    mail to: user.email, subject: t("mail.subject")
   end
 
-  def password_reset
-    @greeting = t "mail.greeting"
-    mail to: "to@example.org"
+  def password_reset user
+    @user = user
+    mail to: user.email, subject: t("mail.pass_rs")
   end
 end
