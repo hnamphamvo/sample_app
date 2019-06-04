@@ -2,9 +2,9 @@
 
 # :nodoc:
 class UsersController < ApplicationController
-  before_action :logged_in_user, except: %i[new show create]
-  before_action :load_user, except: %i[new index create]
-  before_action :correct_user, only: %i[edit update]
+  before_action :logged_in_user, except: %i(new show create)
+  before_action :load_user, except: %i(new index create)
+  before_action :correct_user, only: %i(edit update)
   before_action :admin_user, only: :destroy
 
   def new
@@ -13,11 +13,13 @@ class UsersController < ApplicationController
 
   def index
     @users = User.paginate page: params[:page],
-                           per_page: Settings.per_page
+      per_page: Settings.per_page
   end
 
   def show
     redirect_to root_url && return unless @user.activated
+    @microposts = @user.microposts.paginate page: params[:page],
+      per_page: Settings.per_page
   end
 
   def edit; end
@@ -56,7 +58,7 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit :name, :email,
-                                 :password, :password_cormfirmation
+      :password, :password_cormfirmation
   end
 
   def logged_in_user
@@ -78,7 +80,6 @@ class UsersController < ApplicationController
   def load_user
     @user = User.find_by id: params[:id]
     return if @user
-
     flash[:danger] = t "errors.nil_user"
     redirect_to root_path
   end
