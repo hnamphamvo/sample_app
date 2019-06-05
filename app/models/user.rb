@@ -2,6 +2,7 @@
 
 # :nodoc:
 class User < ApplicationRecord
+  has_many :microposts, dependent: :destroy
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
   attr_accessor :remember_token, :activation_token, :reset_token
@@ -68,6 +69,10 @@ class User < ApplicationRecord
     def new_token
       SecureRandom.urlsafe_base64
     end
+  end
+
+  def feed
+    microposts.order_created
   end
 
   private
