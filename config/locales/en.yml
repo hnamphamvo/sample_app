@@ -111,6 +111,8 @@ en:
     edit: "Edit user"
     save_change: "Save changes"
     post: "Post"
+    follow: "follow"
+    unfollow: "unfollow"
   errors:
     nil_user: "User not found"
     msg1: "Invalid email/password combination"
@@ -144,3 +146,6 @@ en:
     rails: "http://rubyonrails.org/"
     micropostcreated: "Micropost created!"
     micropostdeleted: "Micropost deleted!"
+  follow:
+    followers: "followers"
+    following: "following"
